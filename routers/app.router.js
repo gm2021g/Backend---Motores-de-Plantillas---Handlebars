@@ -1,16 +1,11 @@
 const express = require('express');
+const rutasProductos = require('./products/products.routes')
+const rutasCarrito = require('./cart/cart.routes')
 
-const rutasProductos = require('./productos/productos.routes');
-const rutasInicio = require('./inicio/inicio.routes');
-const rutasCreaProducto = require('./creaproducto/creaproducto.routes');
 const router = express.Router();
 
-// Middlewares
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
-
+//Definición de rutas
 router.use('/productos', rutasProductos);
-router.use('/inicio', rutasInicio);
-router.use('/creaproducto', rutasCreaProducto);
+router.use('/carrito', rutasCarrito);
 
-module.exports = router; 
+module.exports = router;
